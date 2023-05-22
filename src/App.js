@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import FunctionContextComponent from './FunctionContextComponent';
+import { ThemeProvider } from './ThemeContext';
 
 const App = () => {
-  
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-  }
-  useEffect(() => {
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
-
   return (
-      <div>{windowWidth}</div>
+      <ThemeProvider>
+        <FunctionContextComponent />
+      </ThemeProvider>
   )
 }
 
